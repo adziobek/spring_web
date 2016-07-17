@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import pl.andrzej.bean.Student;
 
 /**
  * Created by Andrzej on 16.07.2016.
@@ -44,4 +45,19 @@ public class HelloController {
 
         return  modelAndView;
     }
+
+    @RequestMapping("/simpleResponse")
+    @ResponseBody
+    public String getPlainResponse() {
+
+        return "Used @ResponseBody";
+    }
+
+    @RequestMapping(value = "/student")
+    @ResponseBody
+    public Student getStudent() {
+
+        return new Student(23, "Andrzej", "Duda");
+    }
+
 }
