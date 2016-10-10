@@ -20,4 +20,6 @@
 
     <bean id="jsonMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>
 
+    <mvc:resources mapping="/js/**" location="/WEB-INF/js/" />
+
 </beans>

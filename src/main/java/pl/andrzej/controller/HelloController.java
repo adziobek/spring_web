@@ -5,6 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import pl.andrzej.bean.PasswordData;
+import pl.andrzej.bean.PasswordResponse;
 import pl.andrzej.bean.Student;
 
 /**
@@ -60,4 +62,17 @@ public class HelloController {
         return new Student(23, "Andrzej", "Duda");
     }
 
+    @RequestMapping(value = "/changePasswordForm")
+    public ModelAndView changePasswordForm(ModelAndView modelAndView) {
+
+        modelAndView.setViewName("changePasswordForm");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/changePassword", method = RequestMethod.POST)
+    @ResponseBody
+    public PasswordResponse changePassword(@RequestBody PasswordData passwordData) {
+
+        return new PasswordResponse("OK", "Hasło zostało zmienione poprawnie");
+    }
 }
